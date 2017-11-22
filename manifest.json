@@ -7,6 +7,6 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["clipboardWrite"],
+  "permissions": ["topSites"],
   "manifest_version": 2
 }
