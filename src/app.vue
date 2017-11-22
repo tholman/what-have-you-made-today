@@ -22,6 +22,7 @@
         // Make urls cleaner to read
         for( var i = 0; i < results.length; i++ ) {
           results[i].urlData = new URL(results[i].url);
+          console.log(results[i].urlData);
         }
 
         // TODO: Apply filters, and custom sites
