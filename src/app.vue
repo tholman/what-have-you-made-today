@@ -19,6 +19,10 @@
     created() {
       chrome.topSites.get(function(results) {
 
+        var sites = {
+
+        };
+
         // Make urls cleaner to read
         for( var i = 0; i < results.length; i++ ) {
           results[i].urlData = new URL(results[i].url);
@@ -44,9 +48,20 @@
   }
 
   #container {
+    animation: fade-in 600ms ease-out;
     justify-content: center;
     align-items: center;
     display: flex;
     height: 100%;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 </style>
