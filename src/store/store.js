@@ -6,11 +6,15 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-      sites: []
+      sites: [],
+      config: false
     },
     mutations: {
       SET_SITES(state, data) {
         state.sites = data;
+      },
+      SET_CONFIG(state, data) {
+        state.config = data;
       }
     },
     actions: {
@@ -18,6 +22,9 @@ const store = new Vuex.Store({
         const data = API.getTopSites(function(data) {
           commit('SET_SITES', data);
         });
+      },
+      set_config({commit}, data) {
+        commit('SET_CONFIG', data)
       }
     }
 });

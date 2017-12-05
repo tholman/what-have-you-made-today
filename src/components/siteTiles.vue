@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  import Store from '../store/store'
-  import { getSites } from '../store/getters'
-
+  import { mapActions } from 'vuex';
+  import store from '../store/store';
+  
   import siteTile from './siteTile.vue';
 
   export default {
@@ -21,7 +21,7 @@
         sites: []
       }
     },
-    store: Store,
+    store: store,
     components: {
       'siteTile': siteTile
     }

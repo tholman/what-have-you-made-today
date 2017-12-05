@@ -2,22 +2,31 @@
   <div id="container">
     <motivator/>
     <siteTiles/>
-    <configButton />
+    <configButton/>
+
+    <template v-if="$store.state.config">
+      <config/>
+    </template>
+
   </div>
 </template>
 
 <script>
   import motivator from './components/motivator.vue';
   import siteTiles from './components/siteTiles.vue';
+  import config from './components/config.vue';
   import configButton from './components/configButton.vue';
+
+  import store from './store/store.js';
 
   export default {
     name: 'app',
-    created() {},
+    store: store,
     components: {
       'motivator': motivator,
       'siteTiles': siteTiles,
-      'configButton': configButton
+      'configButton': configButton,
+      'config': config
     }
   }
 </script>
