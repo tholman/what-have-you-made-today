@@ -15,6 +15,7 @@
     "chrome",
     "extension",
     "vue",
+    "vuex",
     "home"
   ],
   "author": "Tim Holman",
@@ -37,6 +38,7 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "vue": "^2.5.7"
+    "vue": "^2.5.7",
+    "vuex": "^3.0.1"
   }
 }

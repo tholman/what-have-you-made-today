@@ -1,42 +1,23 @@
 <template>
   <div id="container">
     <motivator/>
-    <siteTiles :sites="sites"/>
+    <siteTiles/>
+    <configButton />
   </div>
 </template>
 
 <script>
   import motivator from './components/motivator.vue';
   import siteTiles from './components/siteTiles.vue';
+  import configButton from './components/configButton.vue';
 
   export default {
     name: 'app',
-    data: function () {
-      return {
-        sites: []
-      }
-    },
-    created() {
-      chrome.topSites.get(function(results) {
-
-        var sites = {
-
-        };
-
-        // Make urls cleaner to read
-        for( var i = 0; i < results.length; i++ ) {
-          results[i].urlData = new URL(results[i].url);
-          console.log(results[i].urlData);
-        }
-
-        // TODO: Apply filters, and custom sites
-        this.sites = results.slice(0, 9);
-
-      }.bind(this));
-    },
+    created() {},
     components: {
       'motivator': motivator,
-      'siteTiles': siteTiles
+      'siteTiles': siteTiles,
+      'configButton': configButton
     }
   }
 </script>

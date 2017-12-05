@@ -1,7 +1,7 @@
 <template>
   <div id="siteTiles">
     <ul>
-      <li v-for="site in sites">
+      <li v-for="site in $store.state.sites">
         <siteTile :site="site"/>
       </li>
     </ul>
@@ -9,11 +9,19 @@
 </template>
 
 <script>
+  import Store from '../store/store'
+  import { getSites } from '../store/getters'
+
   import siteTile from './siteTile.vue';
 
   export default {
     name: 'siteTiles',
-    props: ['sites'],
+    data: function() {
+      return {
+        sites: []
+      }
+    },
+    store: Store,
     components: {
       'siteTile': siteTile
     }
