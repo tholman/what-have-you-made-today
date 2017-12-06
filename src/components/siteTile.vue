@@ -1,5 +1,5 @@
 <template>
-  <div class="tile">
+  <div class="tile" v-bind:style="{ background: site.color}">
     <a v-bind:href="site.url">
       {{site.character}}
       <span class="title">

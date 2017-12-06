@@ -2,11 +2,11 @@
   <div id="config">
     <div class="site-config">
       <ul>
-        <li v-for="site in $store.state.sites">
-          <input class="text-character" type="text" :value="site.character">
-          <input class="text-title" type="text" :value="site.title">
-          <input class="text-url" type="text" :value="site.url">
-          <input class="text-color" type="color" :value="site.color">
+        <li v-for="(site, index) in $store.state.sites">
+          <input class="text-character" type="text" :value="site.character" @change="updateSite(index, 'character',  $event.target.value)">
+          <input class="text-title" type="text" :value="site.title" @change="updateSite(index, 'title',  $event.target.value)">
+          <input class="text-url" type="text" :value="site.url" @change="updateSite(index, 'url',  $event.target.value)">
+          <input class="text-color" type="color" :value="site.color" @change="updateSite(index, 'color',  $event.target.value)">
         </li>
       </ul>
       <button v-on:click="hideConfig">Save and Close</button>
@@ -16,6 +16,7 @@
 
 <script>
   import store from '../store/store'
+  let debounce = null;
 
   export default {
     name: 'config',
@@ -23,6 +24,13 @@
     methods: {
       hideConfig() {
         store.dispatch('set_config', false);
+      },
+      updateSite(index, field, value) {
+        // Update debounced, because colors update quick
+        clearTimeout(debounce);
+        debounce = setTimeout(() => {
+          store.dispatch('set_site', {index, field, value});
+        }, 100)
       }
     }
   }
