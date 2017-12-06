@@ -30,7 +30,7 @@
     height: 100%;
     width: 100%;
     text-align: center;
-    font-size: 70px;
+    font-size: 65px;
     line-height: 100px;
     font-weight: bold;
     color: #fff;
