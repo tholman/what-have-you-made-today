@@ -1,13 +1,11 @@
 <template>
   <div class="tile">
-      <a v-bind:href="site.urlData.href">
-        {{site.title[0].toUpperCase()}}
-        <span class="title">
-          {{site.title}}
-        </span>
-      </a>
-      <!-- <img class="icon" :src="site.urlData.origin + '/favicon.ico'"> -->
-    <!-- {{site.url}} -->
+    <a v-bind:href="site.url">
+      {{site.character}}
+      <span class="title">
+        {{site.title}}
+      </span>
+    </a>
   </div>
 </template>
 

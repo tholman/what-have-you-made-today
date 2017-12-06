@@ -1,38 +1,50 @@
 import ChromePromise from 'chrome-promise';
 
-async function getTopSites() {
-
-  const chromePromise = new ChromePromise();
-  return chromePromise.topSites.get().then((results) => {
-
-    // Make urls cleaner to read
-    for( var i = 0; i < results.length; i++ ) {
-      results[i].urlData = new URL(results[i].url);
-    }
-
-    return(results.slice(0, 9))
-  });
+// Parses the top sites from the chrome result, and saves them to our data format
+function parseTopSites(sites) {
   
-};
+  var siteList = [];
+  for (var site of sites) {
+    siteList.push({
+      title: site.title,
+      character: site.title.substring(0, 1),
+      url: site.url,
+      color: '#eeeeee'
+    })
+  }
 
-export default {
-  getTopSites: getTopSites
+  return siteList;
 }
 
+async function getTopSites() {
 
-      // chrome.topSites.get(function(results) {
+  // Check if they have the data in storage
+  return new ChromePromise().storage.sync.get('whymt-topSites').then((results) => {
 
-      //   var sites = {
+    // If they are not existing in storage, then pull the new items
+    if (Object.keys(results).length == 0) {
+      return new ChromePromise().topSites.get().then((results) => {
 
-      //   };
+        // Parse sitelist into our data format
+        const siteList = parseTopSites(results.slice(0, 9));
 
-      //   // Make urls cleaner to read
-      //   for( var i = 0; i < results.length; i++ ) {
-      //     results[i].urlData = new URL(results[i].url);
-      //     console.log(results[i].urlData);
-      //   }
+        // Save them into chrome storage
+        saveTopSites(siteList);
 
-      //   // TODO: Apply filters, and custom sites
-      //   this.state.sites = results.slice(0, 9);
+        // Return them to load the site
+        return siteList;
+      });
+    } else {
+      return results['whymt-topSites'];
+    }
+  });
+};
 
-      // }.bind(this));
+async function saveTopSites(siteList) {
+  new ChromePromise().storage.sync.set({'whymt-topSites': siteList});
+}
+
+export default {
+  getTopSites: getTopSites,
+  saveTopSites: saveTopSites
+}
