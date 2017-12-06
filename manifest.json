@@ -2,11 +2,10 @@
   "name": "What have you made today?",
   "description": "Chrome extension to replace the default",
   "version": "1.0.0",
-  "incognito": "split",
   "author": "Tim Holman",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["topSites"],
+  "permissions": ["topSites", "storage"],
   "manifest_version": 2
 }

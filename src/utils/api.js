@@ -1,16 +1,18 @@
-async function getTopSites(callback) {
-  
-  // Get From Chrome API
-  return chrome.topSites.get(function(results) {
+import ChromePromise from 'chrome-promise';
+
+async function getTopSites() {
+
+  const chromePromise = new ChromePromise();
+  return chromePromise.topSites.get().then((results) => {
 
     // Make urls cleaner to read
     for( var i = 0; i < results.length; i++ ) {
       results[i].urlData = new URL(results[i].url);
     }
 
-    callback(results.slice(0, 9))
+    return(results.slice(0, 9))
   });
-
+  
 };
 
 export default {

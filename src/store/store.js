@@ -18,10 +18,9 @@ const store = new Vuex.Store({
       }
     },
     actions: {
-      init({commit}) {
-        const data = API.getTopSites(function(data) {
-          commit('SET_SITES', data);
-        });
+      async init({commit}) {
+        const data = await API.getTopSites();
+        commit('SET_SITES', data);
       },
       set_config({commit}, data) {
         commit('SET_CONFIG', data)
