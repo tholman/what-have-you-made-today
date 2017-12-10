@@ -1,4 +1,4 @@
-## What have you made today? - A clean new tab.
+## What have you made today? - A clean NEW TAB for Chrome & FireFox.
 Chrome extension written with `VUE` to replace the default home page, complete with a customizable speed dial.
 
 ### What & Why?
