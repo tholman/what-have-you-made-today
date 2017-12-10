@@ -22,6 +22,11 @@
     height: 120px;
     width: 120px;
     position: relative;
+    transition: transform 100ms ease;
+  }
+
+  .tile:active {
+    transform: scale(0.97);
   }
 
   a {

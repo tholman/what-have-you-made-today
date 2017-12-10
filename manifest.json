@@ -7,5 +7,11 @@
     "newtab": "index.html"
   },
   "permissions": ["topSites", "storage"],
+  "applications": {
+    "gecko": {
+      "id": "@whymt",
+      "strict_min_version": "54.0"
+    }
+  },
   "manifest_version": 2
 }

@@ -33,6 +33,7 @@
 
 <style>
   html, body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     height: 100%;
     margin: 0px;
   }
