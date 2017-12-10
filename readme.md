@@ -1,4 +1,4 @@
-## A clean NEW TAB for Chrome & FireFox.
+## A clean new tab for Chrome & FireFox.
 Chrome extension written with `VUE` to replace the default home page, complete with a customizable speed dial.
 
 ### What & Why?
