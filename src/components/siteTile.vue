@@ -50,6 +50,12 @@
     height: 25px;
     line-height: 25px;
     background: rgba(0,0,0,0.1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
   }
 
 </style>
