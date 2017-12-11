@@ -16,6 +16,24 @@ function parseTopSites(sites) {
   return siteList;
 }
 
+function ensureValidData(sites) {
+  let checkedSites = sites;
+  if( sites.length !== 9 ) {
+    for( var i = 0; i < 9; i++ ) {
+      if( !sites[i] ) {
+        sites.push({
+          title: "Configure Me",
+          character: "A",
+          url: "http://configure-me",
+          color: "#eeeeee"
+        })
+      }
+    }
+  }
+
+  return checkedSites;
+}
+
 async function getTopSites() {
 
   // Check if they have the data in storage
@@ -26,7 +44,7 @@ async function getTopSites() {
       return new ChromePromise().topSites.get().then((results) => {
 
         // Parse sitelist into our data format
-        const siteList = parseTopSites(results.slice(0, 9));
+        const siteList = ensureValidData(parseTopSites(results.slice(0, 9)));
 
         // Save them into chrome storage
         saveTopSites(siteList);
@@ -35,7 +53,7 @@ async function getTopSites() {
         return siteList;
       });
     } else {
-      return results['whymt-topSites'];
+      return ensureValidData(results['whymt-topSites']);
     }
   });
 };
