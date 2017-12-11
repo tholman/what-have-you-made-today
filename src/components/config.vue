@@ -5,7 +5,7 @@
         <li v-for="(site, index) in $store.state.sites">
           <input class="text-character" type="text" :value="site.character" @change="updateSite(index, 'character',  $event.target.value)" placeholder="A" aria-label="Character that appears on the speed dial item">
           <input class="text-title" type="text" :value="site.title" @change="updateSite(index, 'title',  $event.target.value)" placeholder="Site Title" aria-label="Title that appears on the speed dial item">
-          <input class="text-url" type="text" :value="site.url" @change="updateSite(index, 'url',  $event.target.value)" placeholder="Site URL" aria-label="The URL of the speed dial item">
+          <input class="text-url" type="text" :value="site.url" @change="updateSite(index, 'url',  $event.target.value)" placeholder="https://your-url.com" aria-label="The URL of the speed dial item">
           <input class="text-color" type="color" :value="site.color" @change="updateSite(index, 'color',  $event.target.value)" placeholder="Site Color" aria-label="The color the speed dial item">
         </li>
       </ul>
