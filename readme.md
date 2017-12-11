@@ -6,6 +6,8 @@ Looking for a change or something new, this extension for Chrome and FireFox giv
 
 ![What have you made today extension in action](http://i.imgur.com/YgKI4jgr.png)
 
+The beautiful font used here is called [Gilbert](https://www.typewithpride.com/)
+
 ### Installation
 
 **Chrome:** Install here, via the [chrome web store](https://chrome.google.com/webstore/detail/new-tab-what-have-you-mad/pjifadilbibcjmmomhihbpggjamnpfim)
