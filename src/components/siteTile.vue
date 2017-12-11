@@ -50,6 +50,7 @@
     height: 25px;
     line-height: 25px;
     background: rgba(0,0,0,0.1);
+    overflow: hidden;
   }
 
 </style>
