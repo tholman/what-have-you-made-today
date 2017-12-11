@@ -4,9 +4,9 @@ Chrome extension written with `VUE` to replace the default home page, complete w
 ### What & Why?
 Looking for a change or something new, this extension for Chrome and FireFox gives a fresh look, with a little motivating text and a clean customizable speed dial.
 
-![What have you made today extension in action](http://i.imgur.com/YgKI4jgr.png)
+The beautiful font used is called [Gilbert](https://www.typewithpride.com/)
 
-The beautiful font used here is called [Gilbert](https://www.typewithpride.com/)
+![What have you made today extension in action](http://i.imgur.com/YgKI4jgr.png)
 
 ### Installation
 
