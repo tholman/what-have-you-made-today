@@ -8,6 +8,10 @@ Looking for a change or something new, this extension for Chrome and FireFox giv
 
 ### Installation
 
+**Chrome:** Install here, via the [chrome web store](https://chrome.google.com/webstore/detail/new-tab-what-have-you-mad/pjifadilbibcjmmomhihbpggjamnpfim)
+
+**FireFox:** Install here, via the [firefox addons page](https://addons.mozilla.org/en-US/firefox/addon/what-have-you-made-today/)
+
 ### Editing/Setup
 
 1. Clone the repo `git clone https://github.com/tholman/what-have-you-made-today`
