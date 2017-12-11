@@ -8,11 +8,13 @@ The beautiful font used is called [Gilbert](https://www.typewithpride.com/)
 
 ![What have you made today extension in action](http://i.imgur.com/YgKI4jgr.png)
 
-### Installation
+### Installation & Configuration
 
 **Chrome:** Install here, via the [chrome web store](https://chrome.google.com/webstore/detail/new-tab-what-have-you-mad/pjifadilbibcjmmomhihbpggjamnpfim)
 
 **FireFox:** Install here, via the [firefox addons page](https://addons.mozilla.org/en-US/firefox/addon/what-have-you-made-today/)
+
+The new page should fill with what the browser thinks are your most used sites, you can configure them with a button at the bottom right of the new tab page.
 
 ### Editing/Setup
 
