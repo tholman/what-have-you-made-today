@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import API from '../utils/api.js';
+import Vue from "vue";
+import Vuex from "vuex";
+import API from "../utils/api.js";
 
 Vue.use(Vuex);
 
@@ -23,23 +23,23 @@ const store = new Vuex.Store({
     },
     SET_CONFIG(state, data) {
       state.config = data;
-    },
+    }
   },
   actions: {
-    async init({commit}) {
+    async init({ commit }) {
       const data = await API.getTopSites();
-      commit('SET_SITES', data);
+      commit("SET_SITES", data);
     },
-    set_site({commit}, data) {
-      commit('SET_SITE', data);
-      API.saveTopSites(JSON.parse(JSON.stringify(this.state.sites)))
+    set_site({ commit }, data) {
+      commit("SET_SITE", data);
+      API.saveTopSites(JSON.parse(JSON.stringify(this.state.sites)));
     },
-    set_config({commit}, data) {
-      commit('SET_CONFIG', data);
+    set_config({ commit }, data) {
+      commit("SET_CONFIG", data);
     }
   }
 });
 
-store.dispatch('init');
+store.dispatch("init");
 
 export default store;
