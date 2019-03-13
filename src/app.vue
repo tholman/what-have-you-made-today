@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" :style="{ background: backContain }">
     <motivator/>
     <siteTiles/>
     <configButton/>
@@ -31,6 +31,11 @@ export default {
     return {
       backContain: ""
     };
+  },
+  mounted() {
+    this.backContain = new Date().getHours() < 18
+      ? "linear-gradient(to left bottom, #007500, #FFEE58) 100%"
+      : '0 / 400px url("https://dreamity.netlify.com/back-profile.3ae8b1e687a3f38e437a.svg") #191c4c';
   }
 };
 </script>
@@ -38,7 +43,7 @@ export default {
 <style>
 html,
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Raleway, Roboto, "Helvetica Neue", Arial, sans-serif;
   height: 100%;
   margin: 0px;
 }
