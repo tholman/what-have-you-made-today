@@ -14,7 +14,7 @@ function parseTopSites(sites) {
 
     siteList.push({
       title: site.title,
-      character: site.title.substring(0, 1),
+      character: site.title.replace(/[^a-zA-Z]/g, "").substring(0, 1),
       url: site.url,
       color: "#eeeeee"
     });

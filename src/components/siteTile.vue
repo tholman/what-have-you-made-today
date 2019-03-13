@@ -37,7 +37,8 @@ a {
   text-align: center;
   font-size: 65px;
   line-height: 100px;
-  font-weight: bold;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 .title {
@@ -55,5 +56,6 @@ a {
   padding-left: 5px;
   padding-right: 5px;
   box-sizing: border-box;
+  font-weight: 500;
 }
 </style>
