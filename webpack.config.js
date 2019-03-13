@@ -8,7 +8,7 @@ var exportPath = path.resolve(__dirname, "./build");
 
 // Enviroment flag
 var plugins = [];
-var env = process.env.WEBPACK_ENV;
+var env = process.env.WEBPACK_ENV || process.env;
 
 // Differ settings based on production flag
 if (env === "production") {
