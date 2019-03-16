@@ -33,7 +33,8 @@ export default {
     };
   },
   mounted() {
-    this.backContain = new Date().getHours() < 18
+    const hour = new Date().getHours();
+    this.backContain = hour < 18 && hour > 6
       ? "linear-gradient(to left bottom, #007500, #FFEE58) 100%"
       : '0 / 400px url("https://dreamity.netlify.com/back-profile.3ae8b1e687a3f38e437a.svg") #191c4c';
   }
@@ -46,6 +47,7 @@ body {
   font-family: Raleway, Roboto, "Helvetica Neue", Arial, sans-serif;
   height: 100%;
   margin: 0px;
+  background: #191c4c;
 }
 
 #container {
