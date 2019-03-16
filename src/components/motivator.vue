@@ -1,6 +1,6 @@
 <template>
   <div id="motivator">
-    <img src="../assets/motivator.png" aria-label="What have you made today?">
+    <img src="../assets/WHYMT-R-BR.png" aria-label='O quê você fez hoje?'/>
   </div>
 </template>
 
@@ -12,6 +12,6 @@ export default {
 
 <style>
 img {
-  width: 400px;
+  width: 600px;
 }
 </style>
