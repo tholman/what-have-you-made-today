@@ -2,7 +2,7 @@
   <div id="config">
     <div class="site-config">
       <ul>
-        <li v-for="(site, index) in $store.state.sites">
+        <li v-for="(site, index) in $store.state.sites" :key="index">
           <input type="text" class="text-character"
             :value="site.character"
             @change="updateSite(index, 'character',  $event.target.value)"
@@ -91,11 +91,13 @@ input {
   padding: 5px;
   border: 1px solid #f1f1f1;
   color: #555;
+  font-family: inherit;
 }
 
 .text-character {
   width: 35px;
   text-align: center;
+  font-weight: 600;
 }
 
 .text-title {

@@ -1,7 +1,7 @@
 <template>
   <div id="siteTiles">
     <ul>
-      <li v-for="site in $store.state.sites">
+      <li v-for="(site, index) in $store.state.sites" :key="index">
         <siteTile :site="site"/>
       </li>
     </ul>

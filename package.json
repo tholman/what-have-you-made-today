@@ -31,15 +31,15 @@
     "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
-    "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
+    "uglify-es": "git://github.com/mishoo/UglifyJS2.git#harmony",
     "uglifyjs-webpack-plugin": "^1.1.0",
     "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.7",
+    "vue-template-compiler": "^2.6.9",
     "webpack": "^3.8.1"
   },
   "dependencies": {
     "chrome-promise": "^2.1.1",
-    "vue": "^2.5.7",
+    "vue": "^2.6.9",
     "vuex": "^3.0.1"
   }
 }
