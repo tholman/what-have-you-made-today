@@ -57,7 +57,7 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(25, 28, 76, 0.8);
   top: 0px;
   left: 0px;
   justify-content: center;
@@ -70,15 +70,13 @@ export default {
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
-  background: #fff;
 }
 
 .site-config ul {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
-  border: 1px solid #eee;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
 }
 
 .site-config li {
@@ -89,15 +87,17 @@ export default {
 input {
   font-size: 15px;
   padding: 5px;
-  border: 1px solid #f1f1f1;
-  color: #555;
+  border: 1px solid #11154e;
+  color: #b1b1b1;
   font-family: inherit;
+  background: rgba(25, 28, 76, 0.9);
 }
 
 .text-character {
   width: 35px;
   text-align: center;
   font-weight: 600;
+  color: aliceblue;
 }
 
 .text-title {
@@ -117,13 +117,12 @@ input {
 .site-config button {
   padding: 8px;
   border: 2px solid #eee;
-  border-radius: 0px;
-  margin: auto;
   font-size: 14px;
   margin-top: 14px;
   width: 130px;
   margin-bottom: -2px;
-  color: #555;
+  color: #f7f7f7;
+  background: #191c4c;
   cursor: pointer;
 }
 </style>
