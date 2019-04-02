@@ -1,6 +1,6 @@
 <template>
   <div class="tile" :style="{ background: site.color }" :aria-label="site.title">
-    <a :href="site.url">
+    <a :href="site.url" :style="{ color: '#' + getContrasted(site.color) }">
       {{ site.character }}
       <span class="title">
         {{ site.title }}
@@ -10,15 +10,42 @@
 </template>
 
 <script>
+import { contrast, getRgb, genColor, minCon } from 'minimalista';
+
 export default {
   name: "siteTile",
-  props: ["site"]
+  props: ["site"],
+  data: function() {
+    return {
+      hour: new Date().getHours(),
+      min: { contrast, getRgb, genColor, minCon }
+    };
+  },
+  methods: {
+    getContrasted: function(bg, color = '191c4c') {
+      const mini = this.min;
+      // if no bg stored, choice based in hour
+      bg = bg === 'transparent' ?
+        (this.hour < 18 && this.hour > 6 ?
+          '559d16' : 'ae2a91') : bg;
+      const contrast = mini.contrast(
+        mini.getRgb(bg),
+        mini.getRgb(color));
+      if (contrast > mini.minCon.aa) {
+        return color;
+      } else {
+        const newColor = mini.genColor(
+          mini.getRgb(bg),
+          mini.getRgb(color));
+        return this.getContrasted(bg, newColor);
+      }
+    }
+  }
 };
 </script>
 
 <style>
 .tile {
-  background: rgba(0, 0, 0, 0.1);
   height: 120px;
   width: 120px;
   position: relative;

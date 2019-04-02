@@ -55,7 +55,7 @@ export default {
 <style>
 #config {
   position: fixed;
-  width: 100%;
+  width: 55vw;
   height: 100%;
   background: rgba(25, 28, 76, 0.8);
   top: 0px;
@@ -70,6 +70,7 @@ export default {
   max-width: 600px;
   margin: auto;
   padding: 20px;
+  margin-left: 15vw;
 }
 
 .site-config ul {
