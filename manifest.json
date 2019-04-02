@@ -1,10 +1,10 @@
 {
-  "name": "New Tab - What have you made today?",
+  "name": "Nova Aba - What have you made today?",
   "description": "Chrome small motivating extension for your new tabs.",
-  "short_name": "WHYMT - New Tab",
-  "version": "1.0.5",
-  "author": "Tim Holman",
-  "homepage_url": "https://github.com/tholman/what-have-you-made-today",
+  "short_name": "WHYMT - Nova Aba",
+  "version": "1.1.0",
+  "author": "GuiDevloper",
+  "homepage_url": "https://github.com/guidevloper/what-have-you-made-today",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
