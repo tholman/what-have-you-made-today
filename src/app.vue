@@ -15,41 +15,48 @@
 </template>
 
 <script>
-import API from "./utils/api.js";
-
 import motivator from "./components/motivator.vue";
 import siteTiles from "./components/siteTiles.vue";
 import config from "./components/config.vue";
 import configButton from "./components/configButton.vue";
 
+import { ref, reactive, unRef, toRefs, onBeforeMount } from "vue";
+import API from "./utils/api.js";
+
 export default {
-  name: "app",
-  data: () => {
-    return {
-      configOpen: false,
+  setup(props, { emit }) {
+    const state = reactive({
       sites: [],
+      configOpen: false,
+    });
+
+    onBeforeMount(async () => {
+      state.sites = await new Promise((resolve) => {
+        API.getTopSites(resolve);
+      });
+    });
+
+    const setConfigOpen = (value) => {
+      state.configOpen = value;
+    };
+
+    const setSite = (values) => {
+      const { index, field, value } = values;
+      state.sites[index][field] = value;
+      API.saveTopSites(state.sites);
+    };
+
+    return {
+      ...toRefs(state),
+      setConfigOpen,
+      setSite,
     };
   },
-  created: async function () {
-    this.sites = await new Promise((resolve) => {
-      API.getTopSites(resolve);
-    });
-  },
-  methods: {
-    setConfigOpen(value) {
-      this.configOpen = value;
-    },
-    setSite(values) {
-      const { index, field, value } = values;
-      this.sites[index][field] = value;
-      API.saveTopSites(this.sites);
-    },
-  },
   components: {
-    motivator: motivator,
-    siteTiles: siteTiles,
-    configButton: configButton,
-    config: config,
+    motivator,
+    siteTiles,
+    configButton,
+    config,
   },
 };
 </script>

@@ -12,13 +12,13 @@
 import siteTile from "./siteTile.vue";
 
 export default {
-  components: { siteTile },
   props: {
     sites: {
       type: Array,
       required: true,
     },
   },
+  components: { siteTile },
 };
 </script>
 
