@@ -9,19 +9,15 @@
 </template>
 
 <script>
-// import { mapActions } from "vuex";
-// import store from "../store/store";
-
 import siteTile from "./siteTile.vue";
 
 export default {
-  name: "siteTiles",
-  props: ["sites"],
-  data: () => {
-    return {};
-  },
-  components: {
-    siteTile: siteTile,
+  components: { siteTile },
+  props: {
+    sites: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

@@ -45,25 +45,22 @@
 </template>
 
 <script>
-let debounce = null;
-
 export default {
-  name: "config",
-  props: ["sites"],
-  data: () => {
-    return {};
+  props: {
+    sites: {
+      type: Array,
+      required: true,
+    },
   },
-  methods: {
-    hideConfig() {
-      this.$emit("set-config-open", false);
-    },
-    updateSite(index, field, value) {
-      // Update debounced, because colors update quick
-      clearTimeout(debounce);
-      debounce = setTimeout(() => {
-        this.$emit("set-site", { index, field, value });
-      }, 100);
-    },
+  setup(props, { emit }) {
+    const hideConfig = () => emit("set-config-open", false);
+    const updateSite = (index, field, value) => {
+      emit("set-site", { index, field, value });
+    };
+    return {
+      hideConfig,
+      updateSite,
+    };
   },
 };
 </script>

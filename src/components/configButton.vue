@@ -21,11 +21,11 @@
 
 <script>
 export default {
-  name: "configButton",
-  methods: {
-    showConfig() {
-      this.$emit("set-config-open", true);
-    },
+  setup(props, { emit }) {
+    const showConfig = () => emit("set-config-open", true);
+    return {
+      showConfig,
+    };
   },
 };
 </script>
