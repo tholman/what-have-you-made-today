@@ -1,11 +1,10 @@
 {
   "name": "whymt",
-  "version": "1.0.0",
-  "description": "Chrome extension, replacement of the home page",
-  "main": "index.js",
+  "description": "Browser extension dialpad, with favorite sites. Fully customizable.",
+  "version": "1.0.1",
   "scripts": {
-    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
-    "build": "WEBPACK_ENV=production webpack"
+    "dev": "webpack-dev-server",
+    "build": "webpack --env.prod"
   },
   "repository": {
     "type": "git",
@@ -14,9 +13,7 @@
   "keywords": [
     "chrome",
     "extension",
-    "vue",
-    "vuex",
-    "home"
+    "vue"
   ],
   "author": "Tim Holman",
   "license": "MIT",
@@ -24,22 +21,18 @@
     "url": "https://github.com/tholman/whymt/issues"
   },
   "homepage": "https://github.com/tholman/whymt#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-runtime": "^6.26.0",
-    "css-loader": "^0.28.7",
-    "file-loader": "^1.1.5",
-    "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
-    "uglifyjs-webpack-plugin": "^1.1.0",
-    "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.7",
-    "webpack": "^3.8.1"
-  },
   "dependencies": {
-    "chrome-promise": "^2.1.1",
-    "vue": "^2.5.7",
-    "vuex": "^3.0.1"
+    "vue": "^3.0.0-beta.2"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.0-beta.2",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "url-loader": "^4.0.0",
+    "vue-loader": "^16.0.0-alpha.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }
