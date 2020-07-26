@@ -2,7 +2,7 @@
   "name": "New Tab - What have you made today?",
   "description": "Chrome small motivating extension for your new tabs.",
   "short_name": "WHYMT - New Tab",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Tim Holman",
   "homepage_url": "https://github.com/tholman/what-have-you-made-today",
   "chrome_url_overrides": {

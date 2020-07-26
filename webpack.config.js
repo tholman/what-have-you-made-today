@@ -1,72 +1,60 @@
-var webpack = require("webpack");
-var path = require("path");
+const path = require("path");
+const { VueLoaderPlugin } = require("vue-loader");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-// Naming and path settings
-var appName = "app";
-var entryPoint = "./src/main.js";
-var exportPath = path.resolve(__dirname, "./build");
-
-// Enviroment flag
-var plugins = [];
-var env = process.env.WEBPACK_ENV;
-
-// Differ settings based on production flag
-if (env === "production") {
-  // var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-  // plugins.push(new UglifyJsPlugin({ minimize: true }));
-  plugins.push(
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: '"production"'
-      }
-    })
-  );
-
-  appName = appName + ".min.js";
-} else {
-  appName = appName + ".js";
-}
-
-// Main Settings config
-module.exports = {
-  entry: entryPoint,
+module.exports = (env = {}) => ({
+  mode: env.prod ? "production" : "development",
+  devtool: env.prod ? "source-map" : "cheap-module-eval-source-map",
+  entry: path.resolve(__dirname, "./src/main.js"),
   output: {
-    path: exportPath,
-    filename: appName
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        query: {
-          presets: ["es2015"]
-        }
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader"
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              publicPath: "build/",
-              outputPath: "assets/"
-            }
-          }
-        ]
-      }
-    ]
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "/dist/",
   },
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js",
-      assets: path.resolve(__dirname, "./src/assets")
-    }
+      // this isn't technically needed, since the default `vue` entry for bundlers
+      // is a simple `export * from '@vue/runtime-dom`. However having this
+      // extra re-export somehow causes webpack to always invalidate the module
+      // on the first HMR update and causes the page to reload.
+      vue: "@vue/runtime-dom",
+    },
   },
-  plugins
-};
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: "vue-loader",
+      },
+      {
+        test: /\.png$/,
+        use: {
+          loader: "url-loader",
+          options: { limit: 8192 },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { hmr: !env.prod },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
+  devServer: {
+    inline: true,
+    hot: true,
+    stats: "minimal",
+    contentBase: __dirname,
+    overlay: true,
+  },
+});
